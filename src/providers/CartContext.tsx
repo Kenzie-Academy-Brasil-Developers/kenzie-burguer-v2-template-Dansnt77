@@ -11,7 +11,7 @@ interface ICartContext {
   addCart: (id: Number) => void
   removeCart: (id: Number) => void
   removeAll: (id: Number) => void
-  totalValue: any
+  totalValue: number
   searchText: string
   setSearchText: React.Dispatch<React.SetStateAction<string>>
   handleSearch: () => IProducts[]
@@ -69,7 +69,7 @@ export const CartsProvider = ({ children }: ICartContextProviderProps) => {
     toast.success("Removido com sucesso")
   }
 
-  const totalValue = listCart.reduce((previousValue: any, currentAmount: { price: any; }) => {
+  const totalValue = listCart.reduce((previousValue: number, currentAmount: { price: number; }) => {
     return previousValue + currentAmount.price
   }, 0)
 
