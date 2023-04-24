@@ -2,17 +2,21 @@ import { StyledProductCard } from './style';
 import { StyledButton } from '../../../styles/button';
 import { StyledParagraph, StyledTitle } from '../../../styles/typography';
 import { CartContext, IProducts } from '../../../providers/CartContext';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { set } from 'zod';
 
 interface ICart {
   product: IProducts;
 }
 
 const ProductCard = ({ product }: ICart) => {
-  const { addCart, handleSearch } = useContext(CartContext)
+  const { addCart } = useContext(CartContext)
+
 
   return (
+
     <StyledProductCard>
+
       <div className='imageBox'>
         <img src={product.img} alt={product.name} />
       </div>
